@@ -11,7 +11,7 @@ function App() {
   const [data, setData] = useState('{}');
   const [query, setQuery] = useState('636046316036');
   const [url, setUrl] = useState(
-    'https://upc.shamacon.us/grocy/636046316036',
+    'https://upc.shamacon.us/off/636046316036',
   );
  
   useEffect(() => {
@@ -42,7 +42,7 @@ function App() {
       <button
         type="button"
         onClick={() =>
-          setUrl(`https://upc.shamacon.us/grocy/${query}`)
+          setUrl(`https://upc.shamacon.us/off/${query}`)
         }
       >
         Search
