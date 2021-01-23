@@ -2,29 +2,18 @@ import React, { useState, useEffect } from "react";
 import Api from './Api';
 
 
-function formatName(user) {
-  return user.firstName + ' ' + user.lastName;
-}
-
-const upcData = Api.get('/636046316036', {
-
-});
-
-const upcResult = upcData.data;
 
 
-const user = {
-  firstName: 'Harper',
-  lastName: 'Perez'
-};
 
-const element = (
-  <h1>
-    Hello, {formatName(user)}!  </h1>
-);
 
 
 const App = () => {
+  const upcData = Api.get('/636046316036', {
+
+  });
+  
+  const upcResult = upcData.data;
+  
   const [color, setColor] = useState("black");
 
   useEffect(() => {
@@ -39,6 +28,7 @@ const App = () => {
     document.addEventListener("click", changeColorOnClick);
 
     return () => {
+      console.log({upcResult})
       document.removeEventListener("click", changeColorOnClick);
     };
   }, [color]);
@@ -58,7 +48,7 @@ const App = () => {
           backgroundColor: color,
         }}
       >
-        This div can change color. Click on me!
+        {upcResult}
       </div>
     </div>
   );
