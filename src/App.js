@@ -33,6 +33,7 @@ function App() {
  
   return (
     <Fragment>
+      <h1>Enter a barcode number to search for its product name</h1>
       <input
         type="text"
         value={query}
