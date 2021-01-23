@@ -33,7 +33,7 @@ function App() {
 
 
       } catch (err) {
-        const errObj = Object.entries(result.data.result).map(([key, value]) => ({key, value}))
+        const errObj = Object.entries(err.response.data.result).map(([key, value]) => ({key, value}))
         const errResult = errObj.map((entry, index) => {
           return <li key={index}>{entry.key}: {entry.value}</li>;
         })
