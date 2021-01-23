@@ -13,7 +13,7 @@ const App = () => {
   });
   
   const upcResult = upcData.data;
-  console.log({upcResult});  
+  console.log({upcData});  
   const [color, setColor] = useState("black");
 
   useEffect(() => {
