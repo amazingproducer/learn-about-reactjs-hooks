@@ -19,10 +19,10 @@ function App() {
       const result = await axios(url);
  
       const obj = Object.entries(result.data.result).map(([key, value]) => ({key, value}))
-//      console.log(obj);
+      console.log(obj);
       const objResult = obj.map((entry, index) => {
-/*        console.log("here is the entry: ");
-        console.log(entry);*/
+        console.log("here is the entry: ");
+        console.log(entry);
         return <li key={index}>{entry.key}: {entry.value}</li>;
     });
       setData(objResult);
