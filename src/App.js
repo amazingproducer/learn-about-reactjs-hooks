@@ -33,6 +33,10 @@ function App() {
 
 
       } catch (err) {
+        const errObj = Object.entries(result.data.result).map(([key, value]) => ({key, value}))
+        const errResult = errObj.map((entry, index) => {
+          return <li key={index}>{entry.key}: {entry.value}</li>;
+        })
         console.error("Error response:");
         console.error(err.response.data);    // ***
         console.error(err.response.status);  // ***
