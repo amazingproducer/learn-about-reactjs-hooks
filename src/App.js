@@ -16,7 +16,16 @@ function App() {
  
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios(url);
+      try {
+        const result = await axios(url);
+      } catch (err) {
+        console.error("Error response:");
+        console.error(err.response.data);    // ***
+        console.error(err.response.status);  // ***
+        console.error(err.response.headers); // ***
+      } finally {
+        console.log(result);
+      }
       console.log("here is the response: ")
       console.log(result.status)
  
