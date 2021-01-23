@@ -20,7 +20,12 @@ function App() {
  
       const obj = Object.entries(result.data).map(([key, value]) => ({key, value}))
       console.log(obj);
-      setData(obj);
+      const objResult = obj.map((entry, index) => {
+        console.log("here is the entry: ");
+        console.log(entry);
+        return <li key={index}>{entry.key}: {entry.value}</li>;
+    });
+      setData(objResult);
     };
  
     fetchData();
@@ -41,14 +46,10 @@ function App() {
       >
         Search
       </button>
- 
       <ul>
-      {data.map(item => (
-        <li key={item.objectID}>
-          <a href={item.product_name}>{item.upc}</a>
-        </li>
-      ))}
-    </ul>
+      {data}
+    </ul> 
+
     </Fragment>
   );
 }
