@@ -27,35 +27,9 @@ function App() {
           return <li key={index}>{entry.key}: {entry.value}</li>;
       });
         setData(objResult);
-      };
-  
-      fetchData();
-    }, [url]);
-   
-    return (
-      <Fragment>
-        <h1>Enter a barcode number to search for its product name</h1>
-        <input
-          type="text"
-          value={query}
-          onChange={event => setQuery(event.target.value)}
-        />
-        <button
-          type="button"
-          onClick={() =>
-            setUrl(`https://upc.shamacon.us/off/${query}`)
-          }
-        >
-          Search
-        </button>
-        <ul>
-        {data}
-      </ul> 
-  
-      </Fragment>
-    );
-  }
-  
+
+        console.log("here is the response: ")
+        console.log(result.status)
 
 
       } catch (err) {
@@ -64,12 +38,39 @@ function App() {
         console.error(err.response.status);  // ***
         console.error(err.response.headers); // ***
       } finally {
-        console.log("here is the response: ")
-        console.log(result.status)
   
       }
 
  
+
+    };
+
+    fetchData();
+  }, [url]);
+ 
+  return (
+    <Fragment>
+      <h1>Enter a barcode number to search for its product name</h1>
+      <input
+        type="text"
+        value={query}
+        onChange={event => setQuery(event.target.value)}
+      />
+      <button
+        type="button"
+        onClick={() =>
+          setUrl(`https://upc.shamacon.us/off/${query}`)
+        }
+      >
+        Search
+      </button>
+      <ul>
+      {data}
+    </ul> 
+
+    </Fragment>
+  );
+}
 
 
 
