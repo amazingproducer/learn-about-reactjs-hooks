@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/learn-about-reactjs-hooks/static/css/main.6dea0f05.chunk.css",
+    "main.js": "/learn-about-reactjs-hooks/static/js/main.bd2e6fc9.chunk.js",
+    "main.js.map": "/learn-about-reactjs-hooks/static/js/main.bd2e6fc9.chunk.js.map",
+    "runtime-main.js": "/learn-about-reactjs-hooks/static/js/runtime-main.c89a4f3d.js",
+    "runtime-main.js.map": "/learn-about-reactjs-hooks/static/js/runtime-main.c89a4f3d.js.map",
+    "static/js/2.f1ec39b4.chunk.js": "/learn-about-reactjs-hooks/static/js/2.f1ec39b4.chunk.js",
+    "static/js/2.f1ec39b4.chunk.js.map": "/learn-about-reactjs-hooks/static/js/2.f1ec39b4.chunk.js.map",
+    "static/js/3.f7dde50a.chunk.js": "/learn-about-reactjs-hooks/static/js/3.f7dde50a.chunk.js",
+    "static/js/3.f7dde50a.chunk.js.map": "/learn-about-reactjs-hooks/static/js/3.f7dde50a.chunk.js.map",
+    "index.html": "/learn-about-reactjs-hooks/index.html",
+    "static/css/main.6dea0f05.chunk.css.map": "/learn-about-reactjs-hooks/static/css/main.6dea0f05.chunk.css.map",
+    "static/js/2.f1ec39b4.chunk.js.LICENSE.txt": "/learn-about-reactjs-hooks/static/js/2.f1ec39b4.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c89a4f3d.js",
+    "static/js/2.f1ec39b4.chunk.js",
+    "static/css/main.6dea0f05.chunk.css",
+    "static/js/main.bd2e6fc9.chunk.js"
+  ]
+}
