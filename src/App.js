@@ -36,7 +36,9 @@ function App() {
         const errObj = Object.entries(err.response.data.result).map(([key, value]) => ({key, value}))
         const errResult = errObj.map((entry, index) => {
           return <li key={index}>{entry.key}: {entry.value}</li>;
-        })
+        });
+        setData(errResult);
+
         console.error("Error response:");
         console.error(err.response.data.result);    // ***
         console.log("here is the error status")
