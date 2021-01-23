@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import Api from './Api';
+import React, { Fragment, useState, useEffect } from 'react';
+import axios from 'axios';
 
 
 
@@ -7,51 +7,49 @@ import Api from './Api';
 
 
 
-const App = () => {
-  const upcData = Api.get('/636046316036', {
-
-  });
-  
-  const upcResult = upcData.data;
-  console.log({upcData});  
-  const [color, setColor] = useState("black");
-
-  useEffect(() => {
-    const changeColorOnClick = () => {
-      if (color === "black") {
-        setColor("red");
-      } else {
-        setColor("black");
-      }
-    };
-    
-    document.addEventListener("click", changeColorOnClick);
-
-    return () => {
-      document.removeEventListener("click", changeColorOnClick);
-    };
-  }, [color]);
-
-  return (
-    <div>
-      {upcResult}
-      <div
-        id="myDiv"
-        style={{
-          color: "white",
-          width: "100px",
-          height: "100px",
-          position: "absolute",
-          left: "50%",
-          top: "50%",
-          backgroundColor: color,
-        }}
-      >
-        {upcResult}
-      </div>
-    </div>
+function App() {
+  const [data, setData] = useState({ hits: [] });
+  const [query, setQuery] = useState('636046316036');
+  const [url, setUrl] = useState(
+    'https://upc.shamacon.us/grocy/636046316036',
   );
-};
+ 
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios(url);
+ 
+      setData(result.data);
+    };
+ 
+    fetchData();
+  }, [url]);
+ 
+  return (
+    <Fragment>
+      <input
+        type="text"
+        value={query}
+        onChange={event => setQuery(event.target.value)}
+      />
+      <button
+        type="button"
+        onClick={() =>
+          setUrl(`https://upc.shamacon.us/grocy/${query}`)
+        }
+      >
+        Search
+      </button>
+ 
+      <ul>
+        {data.hits.map(item => (
+          <li key={item.objectID}>
+            <a href={item.product_name}>{item.upc}</a>
+          </li>
+        ))}
+      </ul>
+    </Fragment>
+  );
+}
 
 
 
