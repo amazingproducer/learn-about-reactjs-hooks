@@ -19,7 +19,8 @@ function App() {
       const result = await axios(url);
  
       setData(result.data);
-      console.log(result.data);
+      const obj = Object.entries(data).map(([key, value]) => ({key, value}))
+      console.log(obj);
     };
  
     fetchData();
