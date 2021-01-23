@@ -18,7 +18,7 @@ function App() {
     const fetchData = async () => {
       const result = await axios(url);
  
-      const obj = Object.entries(result.data).map(([key, value]) => ({key, value}))
+      const obj = Object.entries(result.data.result).map(([key, value]) => ({key, value}))
 //      console.log(obj);
       const objResult = obj.map((entry, index) => {
 /*        console.log("here is the entry: ");
