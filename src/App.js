@@ -18,53 +18,58 @@ function App() {
     const fetchData = async () => {
       try {
         const result = await axios(url);
+
+        const obj = Object.entries(result.data.result).map(([key, value]) => ({key, value}))
+        console.log(obj);
+        const objResult = obj.map((entry, index) => {
+          console.log("here is the entry: ");
+          console.log(entry);
+          return <li key={index}>{entry.key}: {entry.value}</li>;
+      });
+        setData(objResult);
+      };
+  
+      fetchData();
+    }, [url]);
+   
+    return (
+      <Fragment>
+        <h1>Enter a barcode number to search for its product name</h1>
+        <input
+          type="text"
+          value={query}
+          onChange={event => setQuery(event.target.value)}
+        />
+        <button
+          type="button"
+          onClick={() =>
+            setUrl(`https://upc.shamacon.us/off/${query}`)
+          }
+        >
+          Search
+        </button>
+        <ul>
+        {data}
+      </ul> 
+  
+      </Fragment>
+    );
+  }
+  
+
+
       } catch (err) {
         console.error("Error response:");
         console.error(err.response.data);    // ***
         console.error(err.response.status);  // ***
         console.error(err.response.headers); // ***
       } finally {
-        console.log(result);
+        console.log("here is the response: ")
+        console.log(result.status)
+  
       }
-      console.log("here is the response: ")
-      console.log(result.status)
- 
-      const obj = Object.entries(result.data.result).map(([key, value]) => ({key, value}))
-      console.log(obj);
-      const objResult = obj.map((entry, index) => {
-        console.log("here is the entry: ");
-        console.log(entry);
-        return <li key={index}>{entry.key}: {entry.value}</li>;
-    });
-      setData(objResult);
-    };
 
-    fetchData();
-  }, [url]);
  
-  return (
-    <Fragment>
-      <h1>Enter a barcode number to search for its product name</h1>
-      <input
-        type="text"
-        value={query}
-        onChange={event => setQuery(event.target.value)}
-      />
-      <button
-        type="button"
-        onClick={() =>
-          setUrl(`https://upc.shamacon.us/off/${query}`)
-        }
-      >
-        Search
-      </button>
-      <ul>
-      {data}
-    </ul> 
-
-    </Fragment>
-  );
-}
 
 
 
