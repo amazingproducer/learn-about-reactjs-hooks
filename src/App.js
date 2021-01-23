@@ -13,7 +13,7 @@ const App = () => {
   });
   
   const upcResult = upcData.data;
-  
+  console.log({upcResult});  
   const [color, setColor] = useState("black");
 
   useEffect(() => {
@@ -28,7 +28,6 @@ const App = () => {
     document.addEventListener("click", changeColorOnClick);
 
     return () => {
-      console.log({upcResult})
       document.removeEventListener("click", changeColorOnClick);
     };
   }, [color]);
