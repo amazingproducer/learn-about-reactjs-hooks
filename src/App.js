@@ -8,7 +8,7 @@ import axios from 'axios';
 
 
 function App() {
-  const [data, setData] = useState({ hits: [] });
+  const [data, setData] = useState({ });
   const [query, setQuery] = useState('636046316036');
   const [url, setUrl] = useState(
     'https://upc.shamacon.us/grocy/636046316036',
@@ -19,8 +19,6 @@ function App() {
       const result = await axios(url);
  
       setData(result.data);
-      const obj = Object.entries(data).map(([key, value]) => ({key, value}))
-      console.log(obj);
     };
  
     fetchData();
