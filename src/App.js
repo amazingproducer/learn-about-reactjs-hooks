@@ -27,8 +27,7 @@ function App() {
     });
       setData(objResult);
     };
-    
- 
+
     fetchData();
   }, [url]);
  
