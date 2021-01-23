@@ -20,7 +20,7 @@ function App() {
  
       const obj = Object.entries(result.data).map(([key, value]) => ({key, value}))
       console.log(obj);
-      setData(result.data);
+      setData(obj);
     };
  
     fetchData();
@@ -43,8 +43,12 @@ function App() {
       </button>
  
       <ul>
-        {data}
-      </ul>
+      {data.map(item => (
+        <li key={item.objectID}>
+          <a href={item.product_name}>{item.upc}</a>
+        </li>
+      ))}
+    </ul>
     </Fragment>
   );
 }
