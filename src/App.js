@@ -19,6 +19,7 @@ function App() {
       const result = await axios(url);
  
       setData(result.data);
+      console.log(result.data);
     };
  
     fetchData();
@@ -41,7 +42,7 @@ function App() {
       </button>
  
       <ul>
-        {data.hits.map(item => (
+        {data.map(item => (
           <li key={item.objectID}>
             <a href={item.product_name}>{item.upc}</a>
           </li>
