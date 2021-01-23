@@ -42,11 +42,7 @@ function App() {
       </button>
  
       <ul>
-        {data.map(item => (
-          <li key={item.objectID}>
-            <a href={item.product_name}>{item.upc}</a>
-          </li>
-        ))}
+        {data}
       </ul>
     </Fragment>
   );
