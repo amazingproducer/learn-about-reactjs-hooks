@@ -18,7 +18,7 @@ function App() {
     const fetchData = async () => {
       const result = await axios(url);
  
-      console.log(data);
+      console.log(result.value);
       setData(result.data);
     };
  
