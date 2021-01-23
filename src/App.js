@@ -38,7 +38,8 @@ function App() {
           return <li key={index}>{entry.key}: {entry.value}</li>;
         })
         console.error("Error response:");
-        console.error(err.response.data);    // ***
+        console.error(err.response.data.result);    // ***
+        console.log("here is the error status")
         console.error(err.response.status);  // ***
         console.error(err.response.headers); // ***
       } finally {
