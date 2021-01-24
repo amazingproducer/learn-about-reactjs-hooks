@@ -2,30 +2,29 @@ import React, { Fragment, useState, useEffect } from 'react';
 import axios from 'axios';
 
 function App() {
-  const [data, setData] = useState('{}');
-  const [query, setQuery] = useState('636046316036');
+  const [data, setData] = useState('Enter a 12-digit UPC or 13-digit EAN');
+  const [query, setQuery] = useState('');
   const [url, setUrl] = useState(
-    'https://upc.shamacon.us/off/636046316036',
+    '',
   );
  
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const result = await axios(url);
-
-        const obj = Object.entries(result.data.result).map(([key, value]) => ({key, value}))
-        console.log(obj);
-        const objResult = obj.map((entry, index) => {
-          console.log("here is the entry: ");
-          console.log(entry);
-          return <li key={index}>{entry.key}: {entry.value}</li>;
-      });
-        setData(objResult);
-
-        console.log("here is the response: ")
-        console.log(result.status)
-
-
+        if(url){
+          const result = await axios(url);
+          const obj = Object.entries(result.data.result).map(([key, value]) => ({key, value}))
+          console.log(obj);
+          const objResult = obj.map((entry, index) => {
+            console.log("here is the entry: ");
+            console.log(entry);
+            return <li key={index}>{entry.key}: {entry.value}</li>;
+        });
+          setData(objResult);
+  
+          console.log("here is the response: ")
+          console.log(result.status)
+          }
       } catch (err) {
         const errObj = Object.entries(err.response.data.result).map(([key, value]) => ({key, value}))
         const errResult = errObj.map((entry, index) => {
@@ -64,6 +63,7 @@ function App() {
         type="text"
         maxLength="13"
         value={query}
+        placeholder="UPC or EAN-13"
         required
         onChange={event => {
           const targetValue = event.target.value
