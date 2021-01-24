@@ -33,6 +33,8 @@ function App() {
           console.log(result.status)
           }
       } catch (err) {
+        setActive(false);
+        setSpinnerDot(spinnerDefault)
         const errObj = Object.entries(err.response.data.result).map(([key, value]) => ({key, value}))
         const errResult = errObj.map((entry, index) => {
           return <li id="errMessage" key={index}>{entry.key}: {entry.value}</li>;
