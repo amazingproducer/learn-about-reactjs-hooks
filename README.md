@@ -16,3 +16,4 @@ It satisfies the following requirements:
 - label each form element for accessibility
 - provide instructional placeholder for textinput field
 - display animated feedback when backend operations are taking place
+- automatically focus the cursor onto the text input field

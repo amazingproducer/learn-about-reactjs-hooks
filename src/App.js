@@ -76,6 +76,7 @@ function App() {
       <input
         id="upcInput"
         type="text"
+        autoFocus="true"
         maxLength="13"
         value={query}
         placeholder="UPC or EAN-13"
