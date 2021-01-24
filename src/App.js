@@ -53,9 +53,10 @@ function App() {
         type="text"
         maxLength="13"
         value={query}
-        onChange={event => 
-          if(/^[0-9]+$/.test(event.target.value)){
-          setQuery(event.target.value)}}
+        onChange={event => {
+          const targetValue = event.target.value
+          if(/^[0-9]+$/.test(targetValue)){
+          setQuery(event.target.value)}}}
       />
       <button
         type="button"
