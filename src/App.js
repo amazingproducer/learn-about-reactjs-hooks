@@ -2,8 +2,8 @@ import React, { Fragment, useState, useEffect } from 'react';
 import axios from 'axios';
 
 function App() {
-  const [data, setData] = useState('{}');
-  const [query, setQuery] = useState('Enter a 12-digit UPC or 13-digit EAN');
+  const [data, setData] = useState('Enter a 12-digit UPC or 13-digit EAN');
+  const [query, setQuery] = useState('');
   const [url, setUrl] = useState(
     '',
   );
