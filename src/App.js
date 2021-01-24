@@ -61,7 +61,7 @@ function App() {
       />
       <button
         type="button"
-        onClick={ ()) => {
+        onClick={ () => {
           if(/^$/.test(query)){
             return
           }
