@@ -61,8 +61,8 @@ function App() {
       />
       <button
         type="button"
-        onClick={ event => {
-          if(/^$/.test(event.target.value)){
+        onClick={ ()) => {
+          if(/^$/.test(query)){
             return
           }
           setUrl(`https://upc.shamacon.us/off/${query}`)
