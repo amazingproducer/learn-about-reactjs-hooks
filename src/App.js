@@ -1,13 +1,14 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import axios from 'axios';
+import Spinner from 'react-bootstrap/Spinner'
+import Button from 'react-bootstrap/Button'
 
 function App() {
   const [data, setData] = useState('Enter a 12-digit UPC or 13-digit EAN');
   const [isActive, setActive] = useState(false);
   const [query, setQuery] = useState('');
-  const [url, setUrl] = useState(
-    '',
-  );
+  const [url, setUrl] = useState('', );
+  
  
   useEffect(() => {
     const fetchData = async () => {
@@ -78,12 +79,15 @@ function App() {
           setQuery(targetValue)}}}
       />
       <label htmlFor='upcSearchSubmit' class="sr-only" id='upcSearchSubmitLabel'>Search for Product Name</label>
-      <button
+      <Button
+        variant="primary"
+
         id="upcSearchSubmit"
         type="submit"
       >
-        {isActive ? 'Searching…' : 'search'}
-      </button>
+        {!isActive && "Search"}
+        {isActive && <Spinner id="upcSearchSpinner" as="span" animation="border" size="sm" role="status" aria-hidden="true"/>}
+      </Button>
       </form>
       <ul id='upcResultList'>
       {data}
