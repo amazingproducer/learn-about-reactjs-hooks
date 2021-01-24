@@ -2,7 +2,7 @@ I'm using this repo to learn how to use react to take a user input and use it to
 
 I'll also deploy the react app to [github pages](https://amazingproducer.github.io/learn-about-reactjs-hooks) as I make progress.
 
-##What's it doing?
+## What's it doing?
 
 Currently, the application is just a form to look up a barcode's product name in [my UPC api](https://upc.shamacon.us/off/000000003333) and a spot to display its results.
 It satisfies the following requirements:
