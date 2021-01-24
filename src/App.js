@@ -50,11 +50,12 @@ function App() {
     <Fragment>
       <h1>Enter a barcode number to search for its product name</h1>
       <input
-        type="number"
-        min="100000000000"
-        max="9999999999999"
+        type="text"
+        maxLength="13"
         value={query}
-        onChange={event => setQuery(event.target.value)}
+        onChange={event => 
+          if(/^[0-9]+$/.test(event.target.value)){
+          setQuery(event.target.value)}}
       />
       <button
         type="button"
