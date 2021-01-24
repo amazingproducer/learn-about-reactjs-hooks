@@ -55,7 +55,7 @@ function App() {
         value={query}
         onChange={event => {
           const targetValue = event.target.value
-          if(/^[0-9]+$/.test(targetValue)){
+          if(/^[0-9]+$|^$/.test(targetValue)){
           setQuery(event.target.value)}}}
       />
       <button
