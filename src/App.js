@@ -13,21 +13,18 @@ function App() {
       try {
         if(url){
           const result = await axios(url);
-        }
-
-        const obj = Object.entries(result.data.result).map(([key, value]) => ({key, value}))
-        console.log(obj);
-        const objResult = obj.map((entry, index) => {
-          console.log("here is the entry: ");
-          console.log(entry);
-          return <li key={index}>{entry.key}: {entry.value}</li>;
-      });
-        setData(objResult);
-
-        console.log("here is the response: ")
-        console.log(result.status)
-
-
+          const obj = Object.entries(result.data.result).map(([key, value]) => ({key, value}))
+          console.log(obj);
+          const objResult = obj.map((entry, index) => {
+            console.log("here is the entry: ");
+            console.log(entry);
+            return <li key={index}>{entry.key}: {entry.value}</li>;
+        });
+          setData(objResult);
+  
+          console.log("here is the response: ")
+          console.log(result.status)
+          }
       } catch (err) {
         const errObj = Object.entries(err.response.data.result).map(([key, value]) => ({key, value}))
         const errResult = errObj.map((entry, index) => {
