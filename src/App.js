@@ -3,15 +3,17 @@ import axios from 'axios';
 
 function App() {
   const [data, setData] = useState('{}');
-  const [query, setQuery] = useState('636046316036');
+  const [query, setQuery] = useState('Enter a 12-digit UPC or 13-digit EAN');
   const [url, setUrl] = useState(
-    'https://upc.shamacon.us/off/636046316036',
+    '',
   );
  
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const result = await axios(url);
+        if(url){
+          const result = await axios(url);
+        }
 
         const obj = Object.entries(result.data.result).map(([key, value]) => ({key, value}))
         console.log(obj);
