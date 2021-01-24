@@ -1,5 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import axios from 'axios';
+import sr-only from 'react-bootstrap';
 
 function App() {
   const [data, setData] = useState('Enter a 12-digit UPC or 13-digit EAN');
@@ -48,7 +49,7 @@ function App() {
   return (
     <Fragment>
       <h1>Enter a barcode number to search for its product name</h1>
-      <label htmlFor='upcSearchForm' id='upcSearchFormLabel'>UPC Search Form</label>
+      <label htmlFor='upcSearchForm' class="sr-only" id='upcSearchFormLabel'>UPC Search Form</label>
       <form
         id="upcSearchForm"
         onSubmit={ event => {
@@ -61,7 +62,7 @@ function App() {
         }
         }
         >
-      <label htmlFor='upcInput' id='upcInputLabel'>Barcode</label>
+      <label htmlFor='upcInput' class="sr-only" id='upcInputLabel'>Barcode</label>
       <input
         id="upcInput"
         type="text"
@@ -74,7 +75,7 @@ function App() {
           if(/^[0-9]+$|^$/.test(targetValue)){
           setQuery(targetValue)}}}
       />
-      <label htmlFor='upcSearchSubmit' id='upcSearchSubmitLabel'>Search for Product Name</label>
+      <label htmlFor='upcSearchSubmit' class="sr-only" id='upcSearchSubmitLabel'>Search for Product Name</label>
       <button
         id="upcSearchSubmit"
         type="submit"
