@@ -18,7 +18,7 @@ function App() {
           const objResult = obj.map((entry, index) => {
             console.log("here is the entry: ");
             console.log(entry);
-            return <li key={index}>{entry.key}: {entry.value}</li>;
+            return <li id="resultMessage" key={index}>{entry.key}: {entry.value}</li>;
         });
           setData(objResult);
   
@@ -28,7 +28,7 @@ function App() {
       } catch (err) {
         const errObj = Object.entries(err.response.data.result).map(([key, value]) => ({key, value}))
         const errResult = errObj.map((entry, index) => {
-          return <li key={index}>{entry.key}: {entry.value}</li>;
+          return <li id="errMessage" key={index}>{entry.key}: {entry.value}</li>;
         });
         setData(errResult);
 
@@ -48,7 +48,9 @@ function App() {
   return (
     <Fragment>
       <h1>Enter a barcode number to search for its product name</h1>
+      <label htmlFor='upcSearchForm' class="sr-only" id='upcSearchFormLabel'>UPC Search Form</label>
       <form
+        id="upcSearchForm"
         onSubmit={ event => {
           event.preventDefault()
           if(/^$/.test(query)){
@@ -59,7 +61,9 @@ function App() {
         }
         }
         >
+      <label htmlFor='upcInput' class="sr-only" id='upcInputLabel'>Barcode</label>
       <input
+        id="upcInput"
         type="text"
         maxLength="13"
         value={query}
@@ -70,13 +74,15 @@ function App() {
           if(/^[0-9]+$|^$/.test(targetValue)){
           setQuery(targetValue)}}}
       />
+      <label htmlFor='upcSearchSubmit' class="sr-only" id='upcSearchSubmitLabel'>Search for Product Name</label>
       <button
+        id="upcSearchSubmit"
         type="submit"
       >
-        Search
+        Go!
       </button>
       </form>
-      <ul>
+      <ul id='upcResultList'>
       {data}
     </ul> 
 
