@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/learn-about-reactjs-hooks/static/css/main.6dea0f05.chunk.css",
+    "main.css": "/learn-about-reactjs-hooks/static/css/main.e824abde.chunk.css",
     "main.js": "/learn-about-reactjs-hooks/static/js/main.18ef4810.chunk.js",
     "main.js.map": "/learn-about-reactjs-hooks/static/js/main.18ef4810.chunk.js.map",
     "runtime-main.js": "/learn-about-reactjs-hooks/static/js/runtime-main.480941bd.js",
@@ -12,14 +12,14 @@
     "static/js/3.184aa36e.chunk.js.map": "/learn-about-reactjs-hooks/static/js/3.184aa36e.chunk.js.map",
     "index.html": "/learn-about-reactjs-hooks/index.html",
     "static/css/2.658248ec.chunk.css.map": "/learn-about-reactjs-hooks/static/css/2.658248ec.chunk.css.map",
-    "static/css/main.6dea0f05.chunk.css.map": "/learn-about-reactjs-hooks/static/css/main.6dea0f05.chunk.css.map",
+    "static/css/main.e824abde.chunk.css.map": "/learn-about-reactjs-hooks/static/css/main.e824abde.chunk.css.map",
     "static/js/2.388ff12c.chunk.js.LICENSE.txt": "/learn-about-reactjs-hooks/static/js/2.388ff12c.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.480941bd.js",
     "static/css/2.658248ec.chunk.css",
     "static/js/2.388ff12c.chunk.js",
-    "static/css/main.6dea0f05.chunk.css",
+    "static/css/main.e824abde.chunk.css",
     "static/js/main.18ef4810.chunk.js"
   ]
 }
