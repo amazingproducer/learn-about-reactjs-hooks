@@ -8,6 +8,9 @@ function App() {
   const [isActive, setActive] = useState(false);
   const [query, setQuery] = useState('');
   const [url, setUrl] = useState('', );
+  const spinnerDefault = "Search";
+  const spinnerString = <Spinner id="upcSearchSpinner" as="span" animation="border" size="sm" role="status" aria-hidden="true"/>
+  const [spinnerDot, setSpinnerDot] = useState(spinnerDefault);
   
  
   useEffect(() => {
@@ -16,6 +19,7 @@ function App() {
         if(url){
           const result = await axios(url);
           setActive(false);
+          setSpinnerDot(spinnerDefault)
           const obj = Object.entries(result.data.result).map(([key, value]) => ({key, value}))
           console.log(obj);
           const objResult = obj.map((entry, index) => {
@@ -60,6 +64,7 @@ function App() {
             return
           }
           setActive(true)
+          setSpinnerDot(spinnerString)
           setUrl(`https://upc.shamacon.us/off/${query}`)
           setQuery("")
         }
@@ -85,8 +90,7 @@ function App() {
         id="upcSearchSubmit"
         type="submit"
       >
-        {!isActive && "Search"}
-        {isActive && <Spinner id="upcSearchSpinner" as="span" animation="border" size="sm" role="status" aria-hidden="true"/>}
+        {isActive && 'Searching…'}{spinnerDot}
       </Button>
       </form>
       <ul id='upcResultList'>
