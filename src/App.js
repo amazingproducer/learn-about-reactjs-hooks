@@ -58,9 +58,6 @@ function App() {
           const targetValue = event.target.value
           if(/^[0-9]+$|^$/.test(targetValue)){
           setQuery(event.target.value)}}}
-      />
-      <button
-        type="submit"
         onSubmit={ () => {
           if(/^$/.test(query)){
             return
@@ -68,7 +65,10 @@ function App() {
           setUrl(`https://upc.shamacon.us/off/${query}`)
 
         }
-        }
+        }      />
+      <button
+        type="submit"
+
       >
         Search
       </button>
