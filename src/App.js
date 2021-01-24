@@ -49,6 +49,15 @@ function App() {
   return (
     <Fragment>
       <h1>Enter a barcode number to search for its product name</h1>
+      <form
+        onSubmit={ () => {
+          if(/^$/.test(query)){
+            return
+          }
+          setUrl(`https://upc.shamacon.us/off/${query}`)
+        }
+        }
+        >
       <input
         type="text"
         maxLength="13"
@@ -61,17 +70,10 @@ function App() {
       />
       <button
         type="submit"
-        onSubmit={ () => {
-          if(/^$/.test(query)){
-            return
-          }
-          setUrl(`https://upc.shamacon.us/off/${query}`)
-
-        }
-        }
       >
         Search
       </button>
+      </form>
       <ul>
       {data}
     </ul> 
