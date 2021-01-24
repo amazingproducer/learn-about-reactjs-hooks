@@ -61,8 +61,13 @@ function App() {
       />
       <button
         type="button"
-        onClick={() =>
+        onClick={ event => {
+          if(/^$/.test(event.target.value)){
+            return
+          }
           setUrl(`https://upc.shamacon.us/off/${query}`)
+
+        }
         }
       >
         Search
