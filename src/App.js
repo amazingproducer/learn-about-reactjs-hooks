@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import axios from 'axios';
-import sr-only from 'react-bootstrap';
+import sr-only from 'react-bootstrap/sr-only';
 
 function App() {
   const [data, setData] = useState('Enter a 12-digit UPC or 13-digit EAN');
