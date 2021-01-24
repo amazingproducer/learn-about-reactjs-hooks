@@ -1,12 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import axios from 'axios';
 
-
-
-
-
-
-
 function App() {
   const [data, setData] = useState('{}');
   const [query, setQuery] = useState('636046316036');
@@ -47,9 +41,6 @@ function App() {
       } finally {
   
       }
-
- 
-
     };
 
     fetchData();
@@ -80,7 +71,5 @@ function App() {
     </Fragment>
   );
 }
-
-
 
 export default App;
