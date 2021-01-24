@@ -60,8 +60,8 @@ function App() {
           setQuery(event.target.value)}}}
       />
       <button
-        type="button"
-        onClick={ () => {
+        type="submit"
+        onSubmit={ () => {
           if(/^$/.test(query)){
             return
           }
