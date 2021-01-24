@@ -63,6 +63,7 @@ function App() {
         type="text"
         maxLength="13"
         value={query}
+        placeholder="UPC or EAN-13"
         required
         onChange={event => {
           const targetValue = event.target.value
