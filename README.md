@@ -1,4 +1,4 @@
-I'm using this repo to learn how to use react hooks to take a user input and use it to make a request of a remote api -- and return its response.
+I'm using this repo to learn how to use react to take a user input and use it to make a request of a remote api -- and return its response.
 
 I'll also deploy the react app to [github pages](https://amazingproducer.github.io/learn-about-reactjs-hooks) as I make progress.
 
@@ -13,3 +13,5 @@ It satisfies the following requirements:
 - do not refresh the page upon submission
 - make a GET request based on the input field upon submission
 - display the GET response with minimal formatting
+- label each form element for accessibility
+- provide instructional placeholder for textinput field
