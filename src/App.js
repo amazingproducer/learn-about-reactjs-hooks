@@ -50,11 +50,13 @@ function App() {
     <Fragment>
       <h1>Enter a barcode number to search for its product name</h1>
       <form
-        onSubmit={ () => {
+        onSubmit={ event => {
+          event.preventDefault()
           if(/^$/.test(query)){
             return
           }
           setUrl(`https://upc.shamacon.us/off/${query}`)
+          setQuery("")
         }
         }
         >
@@ -66,7 +68,7 @@ function App() {
         onChange={event => {
           const targetValue = event.target.value
           if(/^[0-9]+$|^$/.test(targetValue)){
-          setQuery(event.target.value)}}}
+          setQuery(targetValue)}}}
       />
       <button
         type="submit"
