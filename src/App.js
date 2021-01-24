@@ -53,6 +53,7 @@ function App() {
         type="text"
         maxLength="13"
         value={query}
+        required
         onChange={event => {
           const targetValue = event.target.value
           if(/^[0-9]+$|^$/.test(targetValue)){
