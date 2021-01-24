@@ -3,6 +3,7 @@ import axios from 'axios';
 
 function App() {
   const [data, setData] = useState('Enter a 12-digit UPC or 13-digit EAN');
+  const [isActive, setActive] = useState(false);
   const [query, setQuery] = useState('');
   const [url, setUrl] = useState(
     '',
@@ -13,6 +14,7 @@ function App() {
       try {
         if(url){
           const result = await axios(url);
+          setActive(false);
           const obj = Object.entries(result.data.result).map(([key, value]) => ({key, value}))
           console.log(obj);
           const objResult = obj.map((entry, index) => {
@@ -56,6 +58,7 @@ function App() {
           if(/^$/.test(query)){
             return
           }
+          setActive(true)
           setUrl(`https://upc.shamacon.us/off/${query}`)
           setQuery("")
         }
@@ -79,7 +82,7 @@ function App() {
         id="upcSearchSubmit"
         type="submit"
       >
-        Go!
+        {isActive ? 'Searching…' : 'search'}
       </button>
       </form>
       <ul id='upcResultList'>
