@@ -1,12 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import axios from 'axios';
 
-
-
-
-
-
-
 function App() {
   const [data, setData] = useState('{}');
   const [query, setQuery] = useState('636046316036');
@@ -47,9 +41,6 @@ function App() {
       } finally {
   
       }
-
- 
-
     };
 
     fetchData();
@@ -58,19 +49,33 @@ function App() {
   return (
     <Fragment>
       <h1>Enter a barcode number to search for its product name</h1>
+      <form
+        onSubmit={ event => {
+          event.preventDefault()
+          if(/^$/.test(query)){
+            return
+          }
+          setUrl(`https://upc.shamacon.us/off/${query}`)
+          setQuery("")
+        }
+        }
+        >
       <input
         type="text"
+        maxLength="13"
         value={query}
-        onChange={event => setQuery(event.target.value)}
+        required
+        onChange={event => {
+          const targetValue = event.target.value
+          if(/^[0-9]+$|^$/.test(targetValue)){
+          setQuery(targetValue)}}}
       />
       <button
-        type="button"
-        onClick={() =>
-          setUrl(`https://upc.shamacon.us/off/${query}`)
-        }
+        type="submit"
       >
         Search
       </button>
+      </form>
       <ul>
       {data}
     </ul> 
@@ -78,7 +83,5 @@ function App() {
     </Fragment>
   );
 }
-
-
 
 export default App;
