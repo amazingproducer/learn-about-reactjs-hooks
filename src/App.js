@@ -50,6 +50,7 @@ function App() {
     <Fragment>
       <h1>Enter a barcode number to search for its product name</h1>
       <input
+        style={ false }
         type="number"
         min="100000000000"
         max="9999999999999"
