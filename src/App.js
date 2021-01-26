@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button'
 
 function App() {
   const [data, setData] = useState('Enter a 12-digit UPC or 13-digit EAN');
+  const [code, setCode] = useState('');
   const [isActive, setActive] = useState(false);
   const [query, setQuery] = useState('');
   const [url, setUrl] = useState('', );
@@ -17,12 +18,16 @@ function App() {
     if(/^$/.test(query)){
       return
     }
+    if(query === +code){
+      return
+    }
+    //TODO check if query matches previous code
     setActive(true)
     setSpinnerDot(spinnerString)
     setUrl(`https://upc.shamacon.us/off/${query}`)
     setQuery("")
   };
-  const handleBarcodeChange =event => {
+  const handleBarcodeChange = event => {
     const targetValue = event.target.value
     if(/^[0-9]+$|^$/.test(targetValue)){
     setQuery(targetValue)}};
@@ -42,7 +47,7 @@ function App() {
             return <li id="resultMessage" key={index}>{entry.key}: {entry.value}</li>;
         });
           setData(objResult);
-  
+          setCode(result.response.data.result.code)
           console.log("here is the response: ")
           console.log(result.status)
           }
@@ -54,6 +59,7 @@ function App() {
           return <li id="errMessage" key={index}>{entry.key}: {entry.value}</li>;
         });
         setData(errResult);
+        setCode(err.response.data.result.upc)
         console.error("Error response:");
         console.error(err.response.data.result);    // ***
         console.log("here is the error status")
