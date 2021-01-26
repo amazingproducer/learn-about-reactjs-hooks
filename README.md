@@ -31,6 +31,7 @@ Currently, the application is just a form to look up a barcode's product name in
     - it can activate submission via the enter key
     - it has a 13 character upper limit to match barcode specifications
     - it has a screenreader-exclusive label
+    - it informs the user against making the same query repeatedly
   - it has a submit button
     - its text changes while an API call is active
     - it has a screenreader-exclusive label
