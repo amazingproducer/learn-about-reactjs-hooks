@@ -20,7 +20,7 @@ function App() {
     if(/^$/.test(query)){
       return
     }
-    if(query === +code){
+    if(query == +code){
       console.log("Query and Code match.")
       return
     }
