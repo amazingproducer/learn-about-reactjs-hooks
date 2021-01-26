@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button'
 function App() {
   const [data, setData] = useState('Enter a 12-digit UPC or 13-digit EAN');
   const [code, setCode] = useState('');
+  const [inputPrompt, setInputPrompt] = useState("UPC or EAN-13");
   const [isActive, setActive] = useState(false);
   const [query, setQuery] = useState('');
   const [url, setUrl] = useState('', );
@@ -21,6 +22,9 @@ function App() {
       return
     }
     if(query == +code){
+      setInputPrompt("Enter a different number")
+      event.target.reset();
+      setInputPrompt("UPC or EAN-13")
       console.log("Query and Code match.")
       return
     }
@@ -88,7 +92,7 @@ function App() {
         autoFocus="true"
         maxLength="13"
         value={query}
-        placeholder="UPC or EAN-13"
+        placeholder={inputPrompt}
         required
         onChange={handleBarcodeChange}
       />
