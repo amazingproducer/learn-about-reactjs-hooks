@@ -11,7 +11,21 @@ function App() {
   const spinnerDefault = "Search";
   const spinnerString = <Spinner id="upcSearchSpinner" as="span" animation="border" size="sm" role="status" aria-hidden="true"/>
   const [spinnerDot, setSpinnerDot] = useState(spinnerDefault);
-  
+
+  const handleSubmit = event => {
+    event.preventDefault()
+    if(/^$/.test(query)){
+      return
+    }
+    setActive(true)
+    setSpinnerDot(spinnerString)
+    setUrl(`https://upc.shamacon.us/off/${query}`)
+    setQuery("")
+  };
+  const handleBarcodeChange =event => {
+    const targetValue = event.target.value
+    if(/^[0-9]+$|^$/.test(targetValue)){
+    setQuery(targetValue)}};
  
   useEffect(() => {
     const fetchData = async () => {
@@ -40,37 +54,23 @@ function App() {
           return <li id="errMessage" key={index}>{entry.key}: {entry.value}</li>;
         });
         setData(errResult);
-
         console.error("Error response:");
         console.error(err.response.data.result);    // ***
         console.log("here is the error status")
         console.error(err.response.status);  // ***
         console.error(err.response.headers); // ***
       } finally {
-  
       }
     };
-
     fetchData();
   }, [url]);
- 
   return (
     <Fragment>
       <h1>Enter a barcode number to search for its product name</h1>
       <label htmlFor='upcSearchForm' class="sr-only" id='upcSearchFormLabel'>UPC Search Form</label>
       <form
         id="upcSearchForm"
-        onSubmit={ event => {
-          event.preventDefault()
-          if(/^$/.test(query)){
-            return
-          }
-          setActive(true)
-          setSpinnerDot(spinnerString)
-          setUrl(`https://upc.shamacon.us/off/${query}`)
-          setQuery("")
-        }
-        }
+        onSubmit={handleSubmit}
         >
       <label htmlFor='upcInput' class="sr-only" id='upcInputLabel'>Barcode</label>
       <input
@@ -81,15 +81,11 @@ function App() {
         value={query}
         placeholder="UPC or EAN-13"
         required
-        onChange={event => {
-          const targetValue = event.target.value
-          if(/^[0-9]+$|^$/.test(targetValue)){
-          setQuery(targetValue)}}}
+        onChange={handleBarcodeChange}
       />
       <label htmlFor='upcSearchSubmit' class="sr-only" id='upcSearchSubmitLabel'>Search for Product Name</label>
       <Button
         variant="primary"
-
         id="upcSearchSubmit"
         type="submit"
       >
@@ -99,7 +95,6 @@ function App() {
       <ul id='upcResultList'>
       {data}
     </ul> 
-
     </Fragment>
   );
 }
