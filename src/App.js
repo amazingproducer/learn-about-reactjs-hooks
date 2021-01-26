@@ -25,7 +25,7 @@ function App() {
       setInputPrompt("Enter a different number")
       setQuery('')
       console.log(event.target)
-      event.target[0].reset();
+      event.target.reset();
       setInputPrompt("UPC or EAN-13")
       console.log("Query and Code match.")
       return
