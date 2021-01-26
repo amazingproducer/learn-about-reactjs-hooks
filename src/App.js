@@ -15,6 +15,8 @@ function App() {
 
   const handleSubmit = event => {
     event.preventDefault()
+    console.log(`Query: ${query}`)
+    console.log(`Code: ${code}`)
     if(/^$/.test(query)){
       return
     }
