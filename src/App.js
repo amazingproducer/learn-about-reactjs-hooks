@@ -26,7 +26,6 @@ function App() {
       setQuery('')
       console.log(event.target)
       event.target.reset();
-      setInputPrompt("UPC or EAN-13")
       console.log("Query and Code match.")
       return
     }
@@ -34,6 +33,7 @@ function App() {
     setActive(true)
     setSpinnerDot(spinnerString)
     setUrl(`https://upc.shamacon.us/off/${query}`)
+    setInputPrompt("UPC or EAN-13")
     setQuery("")
   };
   const handleBarcodeChange = event => {
