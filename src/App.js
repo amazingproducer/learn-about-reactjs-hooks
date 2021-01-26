@@ -21,6 +21,7 @@ function App() {
       return
     }
     if(query === +code){
+      console.log("Query and Code match.")
       return
     }
     //TODO check if query matches previous code
