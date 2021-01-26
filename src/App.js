@@ -47,7 +47,7 @@ function App() {
             return <li id="resultMessage" key={index}>{entry.key}: {entry.value}</li>;
         });
           setData(objResult);
-          setCode(result.response.data.result.code)
+          setCode(result.data.result.code)
           console.log("here is the response: ")
           console.log(result.status)
           }
