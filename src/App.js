@@ -32,7 +32,7 @@ function App() {
     //TODO check if query matches previous code
     setActive(true)
     setSpinnerDot(spinnerString)
-    setUrl(`https://upc.shamacon.us/off/${query}`)
+    setUrl(`https://upc.shamacon.us/grocy/${query}`)
     setInputPrompt("UPC or EAN-13")
     setQuery("")
   };
