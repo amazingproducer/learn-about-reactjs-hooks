@@ -46,9 +46,10 @@ function App() {
       try {
         if(url){
           const result = await axios(url);
+          console.log(result)
           setActive(false);
           setSpinnerDot(spinnerDefault)
-          const obj = Object.entries(result.data.result).map(([key, value]) => ({key, value}))
+          const obj = Object.entries(result.data).map(([key, value]) => ({key, value}))
           console.log(obj);
           const objResult = obj.map((entry, index) => {
             console.log("here is the entry: ");
@@ -56,21 +57,21 @@ function App() {
             return <li id="resultMessage" key={index}>{entry.key}: {entry.value}</li>;
         });
           setData(objResult);
-          setCode(result.data.result.code)
+          setCode(result.data.upc)
           console.log("here is the response: ")
           console.log(result.status)
           }
       } catch (err) {
         setActive(false);
         setSpinnerDot(spinnerDefault)
-        const errObj = Object.entries(err.response.data.result).map(([key, value]) => ({key, value}))
+        const errObj = Object.entries(err.response.data).map(([key, value]) => ({key, value}))
         const errResult = errObj.map((entry, index) => {
           return <li id="errMessage" key={index}>{entry.key}: {entry.value}</li>;
         });
         setData(errResult);
-        setCode(err.response.data.result.upc)
+        setCode(err.response.data.upc)
         console.error("Error response:");
-        console.error(err.response.data.result);    // ***
+        console.error(err.response.data);    // ***
         console.log("here is the error status")
         console.error(err.response.status);  // ***
         console.error(err.response.headers); // ***
