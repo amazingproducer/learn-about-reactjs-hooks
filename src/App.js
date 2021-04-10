@@ -93,7 +93,8 @@ function App() {
         id="upcInput"
         type="text"
         autoFocus="true"
-        maxLength="13"
+        minLength="12"
+        maxLength="14"
         value={query}
         placeholder={inputPrompt}
         required
