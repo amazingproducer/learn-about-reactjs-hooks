@@ -1,5 +1,5 @@
 {
-  "name": "learn-about-reactjs-hooks",
+  "name": "learn-about-reactjs",
   "version": "0.1.0",
   "private": true,
   "homepage": "https://amazingproducer.github.io/learn-reactjs",
@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^12.6.2",
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
+    "node": "^15.12.0",
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.3",
     "react-dom": "^17.0.1",
@@ -16,12 +17,12 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "start": "node ./node_modules/react-scripts/bin/react-scripts.js start",
+    "build": "node ./node_modules/react-scripts/bin/react-scripts.js build",
+    "test": "node ./node_modules/react-scripts/bin/react-scripts.js test",
+    "eject": "node ./node_modules/react-scripts/bin/react-scripts.js eject",
+    "predeploy": "node ./node_modules/react-scripts/bin/react-scripts.js build",
+    "deploy": "node ./node_modules//gh-pages/bin/gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [

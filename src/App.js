@@ -94,7 +94,7 @@ function App() {
         type="text"
         autoFocus="true"
         minLength="12"
-        maxLength="14"
+        maxLength="13"
         value={query}
         placeholder={inputPrompt}
         required
